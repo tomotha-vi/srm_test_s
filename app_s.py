@@ -3,8 +3,16 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import requests
 import json
+from matplotlib.ticker import MaxNLocator
 
 # サイド画面
+st.markdown(f'''
+    <style>
+    section[data-testid="stSidebar"] .css-ng1t4o {{width: 14rem;}}
+    </style>
+''',unsafe_allow_html=True)
+st.sidebar.markdown('パラメータ設定')
+right_notes = st.sidebar.number_input('検証用パラメータ', value=255)
 
 # メイン画面
 css = """
@@ -72,6 +80,7 @@ sns.distplot(a_data, ax=ax, label='', kde=False, bins=bins)
 #sns.distplot(a_data, ax=ax, label='', kde=False, bins=range(49, 72, 1))
 sns.distplot(m_data, ax=ax, label='', kde=False, bins=bins)
 
+ax.yaxis.set_major_locator(MaxNLocator(integer=True))
 ax.set_ylabel('count', fontsize='medium', labelpad=10)
 ax.set_xlabel('MIDI note number (C4 = 60)', fontsize='medium', labelpad=20)
 ax.set_title('', fontsize='xx-large')
@@ -93,7 +102,6 @@ button_css = f"""
   }}
 </style>
 """
-
 st.markdown(button_css, unsafe_allow_html=True)
 if st.button("解析", key=0):
     st.session_state["clic_count"] += 0
