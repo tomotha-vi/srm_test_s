@@ -25,6 +25,8 @@ css = """
 st.markdown(css, unsafe_allow_html=True)
 st.title("MIDI ノーツの分布")
 st.header('')
+st.header('サーバへのアクセスを停止し、ダミーデータを表示してます')
+st.header('')
 
 if 'clic_count' not in st.session_state:
     st.session_state["clic_count"] = 1
@@ -35,22 +37,26 @@ a_data = []
 m_data = []
 
 # GETリクエスト
-endpoint = 'https://uz6byogmm7.execute-api.ap-northeast-1.amazonaws.com/test/testa'
+# endpointのアクセス先も削除済み
+endpoint = 'removed'
 request_data= {
     'data_name': 'test_data',
     'data_version': '005',
 }
 
 url= endpoint
-res= requests.get(
-    url,
-    data = json.dumps(request_data)
-)
+#res= requests.get(
+#    url,
+#    data = json.dumps(request_data)
+#)
 #st.write("res : ", res )
 
-res_json = res.json()
-a_data = res_json["data"]["accomp"]
-m_data = res_json["data"]["melody"]
+#res_json = res.json()
+#a_data = res_json["data"]["accomp"]
+#m_data = res_json["data"]["melody"]
+
+a_data = [48, 48, 48]
+m_data = [60, 60, 60]
 
 # デバック情報
 #st.write("Load Count : ", st.session_state["clic_count"] )
