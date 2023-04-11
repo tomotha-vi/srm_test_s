@@ -136,7 +136,7 @@ if st.button("解析", key=0):
     audio_str = "data:audio/ogg;base64,%s"%(base64.b64encode(contents).decode())
     audio_html = """
                     <audio autoplay=True>
-                    <source src="%s" type="audio/ogg" autoplay=True>
+                    <source src="%s" type="audio/mp3" autoplay=True>
                     Your browser does not support the audio element.
                     </audio>
                 """ %audio_str
