@@ -146,9 +146,14 @@ if st.button("解析", key=0):
     ####time.sleep(0.5)
     ####audio_placeholder.markdown(audio_html, unsafe_allow_html=True)
     
+    audio_placeholder = st.empty()
     audio_html = """
                     <audio controls autoplay muted src="tes_tts.mp3" type="audio/mp3">テストTTS</audio>
                 """
+    audio_placeholder.empty()
+    time.sleep(0.5)
+    audio_placeholder.markdown(audio_html, unsafe_allow_html=True)
+    
     
     #mixer.init()
     #mixer.music.load('tes_tts.mp3')
