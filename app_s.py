@@ -146,13 +146,25 @@ if st.button("解析", key=0):
     ####time.sleep(0.5)
     ####audio_placeholder.markdown(audio_html, unsafe_allow_html=True)
     
-    audio_placeholder = st.empty()
-    audio_html = """
-                    <audio controls autoplay src="tes_tts.mp3" type="audio/mp3">テストTTS</audio>
-                """
-    audio_placeholder.empty()
-    time.sleep(30)
-    audio_placeholder.markdown(audio_html, unsafe_allow_html=True)
+    
+    ##audio_placeholder = st.empty()
+    ##audio_html = """
+    ##                <audio controls autoplay src="tes_tts.mp3" type="audio/mp3">テストTTS</audio>
+    ##            """
+    ##audio_placeholder.empty()
+    ##time.sleep(30)
+    ##audio_placeholder.markdown(audio_html, unsafe_allow_html=True)
+    
+    html_string = """
+            <audio controls autoplay>
+              <source src="https://www.orangefreesounds.com/wp-content/uploads/2022/04/Small-bell-ringing-short-sound-effect.mp3" type="audio/mp3">
+            </audio>
+            """
+    
+    sound = st.empty()
+    sound.markdown(html_string, unsafe_allow_html=True)
+    time.sleep(2)
+    sound.empty()
     
     
     #mixer.init()
