@@ -151,7 +151,7 @@ if st.button("解析", key=0):
                     <audio controls autoplay src="tes_tts.mp3" type="audio/mp3">テストTTS</audio>
                 """
     audio_placeholder.empty()
-    time.sleep(0.5)
+    time.sleep(30)
     audio_placeholder.markdown(audio_html, unsafe_allow_html=True)
     
     
