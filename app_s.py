@@ -157,13 +157,13 @@ if st.button("解析", key=0):
     
     html_string = """
             <audio controls autoplay>
-              <source src="tes_tts.mp3" type="audio/mp3">
+              <source src="./tes_tts.mp3" type="audio/mp3">
             </audio>
             """
     
     sound = st.empty()
     sound.markdown(html_string, unsafe_allow_html=True)
-    time.sleep(2)
+    time.sleep(100)
     sound.empty()
     
     
