@@ -6,6 +6,7 @@ import json
 from matplotlib.ticker import MaxNLocator
 from gtts import gTTS
 from pygame import mixer
+from helper import draw_embed, create_spectrogram, read_audio, record, save_record
 
 # サイド画面
 st.markdown(f'''
@@ -83,10 +84,10 @@ bins = [48, 49, 50, 51, 52, 53, 54,
 #bins = [48, 49, 50, 51, 52, 53, 54,
 #        55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, ]
 
-#####sns.distplot(a_data, ax=ax, label='', kde=False, bins=bins)
+sns.distplot(a_data, ax=ax, label='', kde=False, bins=bins)
 #sns.distplot(a_data, ax=ax, label='', kde=False, bins=range(37, 48, 84))
 #sns.distplot(a_data, ax=ax, label='', kde=False, bins=range(49, 72, 1))
-#####sns.distplot(m_data, ax=ax, label='', kde=False, bins=bins)
+sns.distplot(m_data, ax=ax, label='', kde=False, bins=bins)
 
 ax.yaxis.set_major_locator(MaxNLocator(integer=True))
 ax.set_ylabel('count', fontsize='medium', labelpad=10)
@@ -117,8 +118,10 @@ if st.button("解析", key=0):
     tts1 = gTTS(text='テストスピーチ', lang='ja')
     tts1.save('tes_tts.mp3')
     
-    mixer.init()
-    mixer.music.load('tes_tts.mp3')
-    mixer.music.play()
-    time.sleep(5)
+    st.audio(read_audio('tes_tts.mp3'))
+    
+    #mixer.init()
+    #mixer.music.load('tes_tts.mp3')
+    #mixer.music.play()
+    #time.sleep(5)
     
