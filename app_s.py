@@ -136,11 +136,12 @@ if st.button("解析", key=0):
     # HTML版
     audio_placeholder = st.empty()
     contents = read_audio('tes_tts.mp3')
+    st.write("contents: ",contents)
 
-    audio_str = "data:audio/ogg;base64,%s"%(base64.b64encode(contents).decode())
+    #audio_str = "data:audio/ogg;base64,%s"%(base64.b64encode(contents).decode())
     audio_html = """
-                    <audio autoplay=True><source src="%s" type="audio/ogg" autoplay=True>テストTTS</audio>
-                """ %audio_str
+                    <audio autoplay=True><source src='tes_tts.mp3' type="audio/mp3" autoplay=True>テストTTS</audio>
+                """
 
     audio_placeholder.empty()
     time.sleep(5)
