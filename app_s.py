@@ -6,6 +6,7 @@ import json
 from matplotlib.ticker import MaxNLocator
 from gtts import gTTS
 from pygame import mixer
+import time
 
 
 def read_audio(file):
@@ -142,7 +143,7 @@ if st.button("解析", key=0):
                 """
 
     audio_placeholder.empty()
-    #time.sleep(0.5)
+    time.sleep(0.5)
     audio_placeholder.markdown(audio_html, unsafe_allow_html=True)
     
     #mixer.init()
