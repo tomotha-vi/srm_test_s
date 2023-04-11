@@ -121,7 +121,9 @@ st.markdown(button_css, unsafe_allow_html=True)
 if st.button("解析", key=0):
     st.session_state["clic_count"] += 0
     
-    tts1 = gTTS(text='テストスピーチ', lang='ja')
+    test_tts = '長い文章だとTTSの再生にどのくらいの時間がかかるか確認しようと思います。なので、とりあえずダラダラと文章をつづっています。むしろ徒然なるままに何とやらという感じで文章を書いています。この位の文字数だと200文字くらいでしょうか。このくらいの長さでなめらかに再生できるといろいろと活用場面が広がるかなと思います。'
+    
+    tts1 = gTTS(text=test_tts, lang='ja')
     tts1.save('tes_tts.mp3')
     
     st.audio(read_audio('tes_tts.mp3'))
