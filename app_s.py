@@ -142,7 +142,7 @@ if st.button("解析", key=0):
                 """
 
     audio_placeholder.empty()
-    time.sleep(0.5)
+    #time.sleep(0.5)
     audio_placeholder.markdown(audio_html, unsafe_allow_html=True)
     
     #mixer.init()
