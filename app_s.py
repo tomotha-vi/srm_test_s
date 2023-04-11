@@ -6,7 +6,13 @@ import json
 from matplotlib.ticker import MaxNLocator
 from gtts import gTTS
 from pygame import mixer
-from helper import draw_embed, create_spectrogram, read_audio, record, save_record
+
+
+def read_audio(file):
+    with open(file, "rb") as audio_file:
+        audio_bytes = audio_file.read()
+    return audio_bytes
+
 
 # サイド画面
 st.markdown(f'''
