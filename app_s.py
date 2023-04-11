@@ -127,6 +127,9 @@ if st.button("解析", key=0):
     tts1 = gTTS(text=test_tts, lang='ja')
     tts1.save('tes_tts.mp3')
     
+    st.download_button(label="Download", data=tts1, file_name="tts1.mp3")
+    #st.write("check_m : ", m_data )
+    
     # streamlit版
     #st.audio(read_audio('tes_tts.mp3'))
     
