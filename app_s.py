@@ -127,27 +127,27 @@ if st.button("解析", key=0):
     tts1 = gTTS(text=test_tts, lang='ja')
     tts1.save('tes_tts.mp3')
     
-    st.download_button(label="Download", data=tts1, file_name="tts1.mp3")
-    #st.write("check_m : ", m_data )
+    #st.download_button(label="Download", data=tts1, file_name="tts1.mp3")
+    st.write("再生準備")
     
     # streamlit版
     #st.audio(read_audio('tes_tts.mp3'))
     
     # HTML版
-    ####audio_placeholder = st.empty()
-    #contents = read_audio('tes_tts.mp3')
+    audio_placeholder = st.empty()
+    contents = read_audio('tes_tts.mp3')
 
-    #audio_str = "data:audio/ogg;base64,%s"%(base64.b64encode(contents).decode())
-    ####audio_html = """
-    ####                <audio autoplay=True>
-    ####                <source src="tes_tts.mp3" type="audio/mp3" autoplay=True>
-    ####                Your browser does not support the audio element.
-    ####                </audio>
-    ####            """
+    audio_str = "data:audio/ogg;base64,%s"%(base64.b64encode(contents).decode())
+    audio_html = """
+                    <audio autoplay=True>
+                    <source src="%s" type="audio/ogg" autoplay=True>
+                    Your browser does not support the audio element.
+                    </audio>
+                """ %audio_str
 
-    ####audio_placeholder.empty()
-    ####time.sleep(0.5)
-    ####audio_placeholder.markdown(audio_html, unsafe_allow_html=True)
+    audio_placeholder.empty()
+    time.sleep(5)
+    audio_placeholder.markdown(audio_html, unsafe_allow_html=True)
     
     
     ##audio_placeholder = st.empty()
@@ -158,16 +158,16 @@ if st.button("解析", key=0):
     ##time.sleep(30)
     ##audio_placeholder.markdown(audio_html, unsafe_allow_html=True)
     
-    html_string = """
-            <audio controls autoplay>
-              <source src="./tes_tts.mp3" type="audio/mp3">
-            </audio>
-            """
+    ###html_string = """
+    ###        <audio controls autoplay>
+    ###          <source src="./tes_tts.mp3" type="audio/mp3">
+    ###        </audio>
+    ###        """
     
-    sound = st.empty()
-    sound.markdown(html_string, unsafe_allow_html=True)
-    time.sleep(100)
-    sound.empty()
+    ###sound = st.empty()
+    ###sound.markdown(html_string, unsafe_allow_html=True)
+    ###time.sleep(100)
+    ###sound.empty()
     
     
     #mixer.init()
