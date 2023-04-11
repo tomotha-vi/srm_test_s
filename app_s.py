@@ -132,7 +132,7 @@ if st.button("解析", key=0):
     
     # HTML版
     ####audio_placeholder = st.empty()
-    contents = read_audio('tes_tts.mp3')
+    #contents = read_audio('tes_tts.mp3')
 
     #audio_str = "data:audio/ogg;base64,%s"%(base64.b64encode(contents).decode())
     ####audio_html = """
@@ -148,7 +148,7 @@ if st.button("解析", key=0):
     
     audio_placeholder = st.empty()
     audio_html = """
-                    <audio controls autoplay muted src="tes_tts.mp3" type="audio/mp3">テストTTS</audio>
+                    <audio controls autoplay src="tes_tts.mp3" type="audio/mp3">テストTTS</audio>
                 """
     audio_placeholder.empty()
     time.sleep(0.5)
