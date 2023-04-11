@@ -126,7 +126,24 @@ if st.button("解析", key=0):
     tts1 = gTTS(text=test_tts, lang='ja')
     tts1.save('tes_tts.mp3')
     
-    st.audio(read_audio('tes_tts.mp3'))
+    # streamlit版
+    #st.audio(read_audio('tes_tts.mp3'))
+    
+    # HTML版
+    audio_placeholder = st.empty()
+    contents = read_audio('tes_tts.mp3')
+
+    audio_str = "data:audio/ogg;base64,%s"%(base64.b64encode(contents).decode())
+    audio_html = """
+                    <audio autoplay=True>
+                    <source src="%s" type="audio/ogg" autoplay=True>
+                    Your browser does not support the audio element.
+                    </audio>
+                """ %audio_str
+
+    audio_placeholder.empty()
+    time.sleep(0.5)
+    audio_placeholder.markdown(audio_html, unsafe_allow_html=True)
     
     #mixer.init()
     #mixer.music.load('tes_tts.mp3')
