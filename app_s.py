@@ -31,7 +31,7 @@ css = """
 </style>
 """
 st.markdown(css, unsafe_allow_html=True)
-st.title("MIDI ノーツの分布")
+st.title("テストシステム")
 st.header('')
 
 if 'clic_count' not in st.session_state:
@@ -54,7 +54,7 @@ res= requests.get(
     url,
     data = json.dumps(request_data)
 )
-st.write("res : ", res )
+#st.write("res : ", res )
 
 res_json = res.json()
 a_data = res_json["data"]["accomp"]
