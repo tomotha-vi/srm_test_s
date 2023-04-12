@@ -135,7 +135,7 @@ if st.button("解析", key=0):
     st.write("再生準備")
     
     # streamlit版
-    st.audio(read_audio('tes_tts.mp3'))
+    #st.audio(read_audio('tes_tts.mp3'))
     
     # HTML版
     audio_placeholder = st.empty()
@@ -151,7 +151,7 @@ if st.button("解析", key=0):
     #              <source src="https://www.orangefreesounds.com/wp-content/uploads/2022/04/Small-bell-ringing-short-sound-effect.mp3" type="audio/mp3">
     #            </audio>
                 <audio controls autoplay>
-                  <source src="tes_tts.mp3" type="audio/mp3">
+                  <source src="tes_tts.mp3">
                 </audio>
                 """
 
