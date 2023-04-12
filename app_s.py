@@ -35,10 +35,10 @@ css = """
 """
 st.markdown(css, unsafe_allow_html=True)
 ####st.title("MIDI ノーツの分布")
-st.title("テスト実施中")
-st.header('')
+st.title("テストシステム")
+####st.header('')
 ####st.header('サーバへのアクセスを停止し、ダミーデータを表示してます')
-st.header('')
+####st.header('')
 
 if 'clic_count' not in st.session_state:
     st.session_state["clic_count"] = 1
@@ -121,7 +121,7 @@ button_css = f"""
 </style>
 """
 st.markdown(button_css, unsafe_allow_html=True)
-if st.button("実行", key=0):
+if st.button("テスト実行", key=0):
     st.session_state["clic_count"] += 0
     
     # この段階でテキストはある
@@ -133,6 +133,7 @@ if st.button("実行", key=0):
     #st.write("path: ", Path('tes_tts.mp3'))
     
     # テキストの表示
+    st.header('')
     st.markdown(test_tts)
     
     
@@ -140,6 +141,7 @@ if st.button("実行", key=0):
     #st.write("再生準備")
     
     # streamlit版
+    st.header('')
     st.audio(read_audio('tes_tts.mp3'))
     
     # HTML版
