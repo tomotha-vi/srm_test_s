@@ -4,17 +4,6 @@ import seaborn as sns
 import requests
 import json
 from matplotlib.ticker import MaxNLocator
-from gtts import gTTS
-from pygame import mixer
-import time
-from pathlib import Path
-
-
-def read_audio(file):
-    with open(file, "rb") as audio_file:
-        audio_bytes = audio_file.read()
-    return audio_bytes
-
 
 # サイド画面
 st.markdown(f'''
@@ -34,11 +23,8 @@ css = """
 </style>
 """
 st.markdown(css, unsafe_allow_html=True)
-####st.title("MIDI ノーツの分布")
-st.title("テストシステム")
-####st.header('')
-####st.header('サーバへのアクセスを停止し、ダミーデータを表示してます')
-####st.header('')
+st.title("MIDI ノーツの分布")
+st.header('')
 
 if 'clic_count' not in st.session_state:
     st.session_state["clic_count"] = 1
@@ -49,26 +35,22 @@ a_data = []
 m_data = []
 
 # GETリクエスト
-# endpointのアクセス先も削除済み
-endpoint = 'removed'
+endpoint = 'https://uz6byogmm7.execute-api.ap-northeast-1.amazonaws.com/test/testa'
 request_data= {
     'data_name': 'test_data',
     'data_version': '005',
 }
 
 url= endpoint
-#res= requests.get(
-#    url,
-#    data = json.dumps(request_data)
-#)
+res= requests.get(
+    url,
+    data = json.dumps(request_data)
+)
 #st.write("res : ", res )
 
-#res_json = res.json()
-#a_data = res_json["data"]["accomp"]
-#m_data = res_json["data"]["melody"]
-
-a_data = [48, 48, 48]
-m_data = [60, 60, 60]
+res_json = res.json()
+a_data = res_json["data"]["accomp"]
+m_data = res_json["data"]["melody"]
 
 # デバック情報
 #st.write("Load Count : ", st.session_state["clic_count"] )
@@ -105,7 +87,7 @@ ax.set_title('', fontsize='xx-large')
 
 #fig.tight_layout()
 
-######st.pyplot(fig)
+st.pyplot(fig)
 
 # ボタン設定
 st.header('')
@@ -121,66 +103,5 @@ button_css = f"""
 </style>
 """
 st.markdown(button_css, unsafe_allow_html=True)
-if st.button("テスト実行", key=0):
+if st.button("解析", key=0):
     st.session_state["clic_count"] += 0
-    
-    # この段階でテキストはある
-    test_tts = '長い文章だとTTSの再生にどのくらいの時間がかかるか確認しようと思います。なので、とりあえずダラダラと文章をつづっています。むしろ徒然なるままに何とやらという感じで文章を書いています。この位の文字数だと200文字くらいでしょうか。このくらいの長さでなめらかに再生できるといろいろと活用場面が広がるかなと思います。'
-    #test_tts = '短いテスト'
-    
-    tts1 = gTTS(text=test_tts, lang='ja')
-    tts1.save('tes_tts.mp3')
-    #st.write("path: ", Path('tes_tts.mp3'))
-    
-    # テキストの表示
-    st.header('')
-    st.markdown(test_tts)
-    
-    
-    #st.download_button(label="Download", data=tts1, file_name="tts1.mp3")
-    #st.write("再生準備")
-    
-    # streamlit版
-    st.header('')
-    st.audio(read_audio('tes_tts.mp3'))
-    
-    # HTML版
-    ########audio_placeholder = st.empty()
-    ########contents = read_audio('tes_tts.mp3')
-    ########st.write("contents: ",contents)
-
-    #audio_str = "data:audio/ogg;base64,%s"%(base64.b64encode(contents).decode())
-    ######audio_html = """
-    ######                <audio autoplay=True><source src='tes_tts.mp3' type="audio/mp3" autoplay=True>テストTTS</audio>
-    ######            """
-    ########audio_html = """
-    #            <audio controls autoplay>
-    #              <source src="https://www.orangefreesounds.com/wp-content/uploads/2022/04/Small-bell-ringing-short-sound-effect.mp3" type="audio/mp3">
-    #            </audio>
-    ########            <audio controls autoplay>
-    ########              <source src="tes_tts.mp3" type="audio/wav">
-    ########            </audio>
-    ########            """
-
-    ########audio_placeholder.empty()
-    ########time.sleep(5)
-    ########audio_placeholder.markdown(audio_html, unsafe_allow_html=True)
-    
-    ##audio_placeholder = st.empty()
-    ##audio_html = """
-    ##                <audio controls autoplay src="tes_tts.mp3" type="audio/mp3">テストTTS</audio>
-    ##            """
-    ##audio_placeholder.empty()
-    ##time.sleep(30)
-    ##audio_placeholder.markdown(audio_html, unsafe_allow_html=True)
-    
-    ###html_string = """
-    ###        <audio controls autoplay>
-    ###          <source src="./tes_tts.mp3" type="audio/mp3">
-    ###        </audio>
-    ###        """
-    
-    ###sound = st.empty()
-    ###sound.markdown(html_string, unsafe_allow_html=True)
-    ###time.sleep(100)
-    ###sound.empty()
