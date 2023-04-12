@@ -35,7 +35,7 @@ a_data = []
 m_data = []
 
 # GETリクエスト
-endpoint = 'https://uz6byogmm7.execute-api.ap-northeast-1.amazonaws.com/test/testa'
+endpoint = 'https://uz6byogmm7.execute-api.ap-northeast-1.amazonaws.com/Test_old_GW/testa'
 request_data= {
     'data_name': 'test_data',
     'data_version': '005',
