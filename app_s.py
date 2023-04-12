@@ -54,7 +54,7 @@ res= requests.get(
     url,
     data = json.dumps(request_data)
 )
-#st.write("res : ", res )
+st.write("res : ", res )
 
 res_json = res.json()
 a_data = res_json["data"]["accomp"]
