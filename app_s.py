@@ -6,6 +6,13 @@ import json
 from matplotlib.ticker import MaxNLocator
 from gtts import gTTS
 
+
+def read_audio(file):
+    with open(file, "rb") as audio_file:
+        audio_bytes = audio_file.read()
+    return audio_bytes
+
+
 # サイド画面
 st.markdown(f'''
     <style>
@@ -121,5 +128,4 @@ if st.button("テスト実行", key=0):
     # streamlit版
     st.header('')
     st.audio(read_audio('tes_tts.mp3'))
-    
     
