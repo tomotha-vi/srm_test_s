@@ -135,7 +135,7 @@ if st.button("解析", key=0):
     st.write("再生準備")
     
     # streamlit版
-    #st.audio(read_audio('tes_tts.mp3'))
+    st.audio(read_audio('tes_tts.mp3'))
     
     # HTML版
     audio_placeholder = st.empty()
