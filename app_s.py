@@ -151,7 +151,7 @@ if st.button("解析", key=0):
     #              <source src="https://www.orangefreesounds.com/wp-content/uploads/2022/04/Small-bell-ringing-short-sound-effect.mp3" type="audio/mp3">
     #            </audio>
                 <audio controls autoplay>
-                  <source src="tes_tts.mp3">
+                  <source src="tes_tts.mp3" type="audio/ogg">
                 </audio>
                 """
 
