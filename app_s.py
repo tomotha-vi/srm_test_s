@@ -34,9 +34,10 @@ css = """
 </style>
 """
 st.markdown(css, unsafe_allow_html=True)
-st.title("MIDI ノーツの分布")
+####st.title("MIDI ノーツの分布")
+st.title("テスト実施中")
 st.header('')
-st.header('サーバへのアクセスを停止し、ダミーデータを表示してます')
+####st.header('サーバへのアクセスを停止し、ダミーデータを表示してます')
 st.header('')
 
 if 'clic_count' not in st.session_state:
@@ -104,7 +105,7 @@ ax.set_title('', fontsize='xx-large')
 
 #fig.tight_layout()
 
-st.pyplot(fig)
+######st.pyplot(fig)
 
 # ボタン設定
 st.header('')
@@ -123,22 +124,22 @@ st.markdown(button_css, unsafe_allow_html=True)
 if st.button("解析", key=0):
     st.session_state["clic_count"] += 0
     
-    ######test_tts = '長い文章だとTTSの再生にどのくらいの時間がかかるか確認しようと思います。なので、とりあえずダラダラと文章をつづっています。むしろ徒然なるままに何とやらという感じで文章を書いています。この位の文字数だと200文字くらいでしょうか。このくらいの長さでなめらかに再生できるといろいろと活用場面が広がるかなと思います。'
-    test_tts = '短いテスト'
+    test_tts = '長い文章だとTTSの再生にどのくらいの時間がかかるか確認しようと思います。なので、とりあえずダラダラと文章をつづっています。むしろ徒然なるままに何とやらという感じで文章を書いています。この位の文字数だと200文字くらいでしょうか。このくらいの長さでなめらかに再生できるといろいろと活用場面が広がるかなと思います。'
+    #test_tts = '短いテスト'
     
     tts1 = gTTS(text=test_tts, lang='ja')
     tts1.save('tes_tts.mp3')
-    st.write("path: ", Path('tes_tts.mp3'))
+    #st.write("path: ", Path('tes_tts.mp3'))
     
     
     #st.download_button(label="Download", data=tts1, file_name="tts1.mp3")
-    st.write("再生準備")
+    #st.write("再生準備")
     
     # streamlit版
-    #st.audio(read_audio('tes_tts.mp3'))
+    st.audio(read_audio('tes_tts.mp3'))
     
     # HTML版
-    audio_placeholder = st.empty()
+    ########audio_placeholder = st.empty()
     ########contents = read_audio('tes_tts.mp3')
     ########st.write("contents: ",contents)
 
@@ -146,20 +147,18 @@ if st.button("解析", key=0):
     ######audio_html = """
     ######                <audio autoplay=True><source src='tes_tts.mp3' type="audio/mp3" autoplay=True>テストTTS</audio>
     ######            """
-    audio_html = """
+    ########audio_html = """
     #            <audio controls autoplay>
     #              <source src="https://www.orangefreesounds.com/wp-content/uploads/2022/04/Small-bell-ringing-short-sound-effect.mp3" type="audio/mp3">
     #            </audio>
-                <audio controls autoplay>
-                  <source src="tes_tts.mp3" type="audio/wav">
-                </audio>
-                """
+    ########            <audio controls autoplay>
+    ########              <source src="tes_tts.mp3" type="audio/wav">
+    ########            </audio>
+    ########            """
 
-
-    audio_placeholder.empty()
-    time.sleep(5)
-    audio_placeholder.markdown(audio_html, unsafe_allow_html=True)
-    
+    ########audio_placeholder.empty()
+    ########time.sleep(5)
+    ########audio_placeholder.markdown(audio_html, unsafe_allow_html=True)
     
     ##audio_placeholder = st.empty()
     ##audio_html = """
@@ -179,10 +178,3 @@ if st.button("解析", key=0):
     ###sound.markdown(html_string, unsafe_allow_html=True)
     ###time.sleep(100)
     ###sound.empty()
-    
-    
-    #mixer.init()
-    #mixer.music.load('tes_tts.mp3')
-    #mixer.music.play()
-    #time.sleep(5)
-    
