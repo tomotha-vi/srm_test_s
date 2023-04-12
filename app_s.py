@@ -121,15 +121,19 @@ button_css = f"""
 </style>
 """
 st.markdown(button_css, unsafe_allow_html=True)
-if st.button("解析", key=0):
+if st.button("実行", key=0):
     st.session_state["clic_count"] += 0
     
+    # この段階でテキストはある
     test_tts = '長い文章だとTTSの再生にどのくらいの時間がかかるか確認しようと思います。なので、とりあえずダラダラと文章をつづっています。むしろ徒然なるままに何とやらという感じで文章を書いています。この位の文字数だと200文字くらいでしょうか。このくらいの長さでなめらかに再生できるといろいろと活用場面が広がるかなと思います。'
     #test_tts = '短いテスト'
     
     tts1 = gTTS(text=test_tts, lang='ja')
     tts1.save('tes_tts.mp3')
     #st.write("path: ", Path('tes_tts.mp3'))
+    
+    # テキストの表示
+    st.markdown(test_tts)
     
     
     #st.download_button(label="Download", data=tts1, file_name="tts1.mp3")
