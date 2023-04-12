@@ -7,6 +7,7 @@ from matplotlib.ticker import MaxNLocator
 from gtts import gTTS
 from pygame import mixer
 import time
+from pathlib import Path
 
 
 def read_audio(file):
@@ -127,6 +128,8 @@ if st.button("解析", key=0):
     
     tts1 = gTTS(text=test_tts, lang='ja')
     tts1.save('tes_tts.mp3')
+    st.write("path: ", Path('tes_tts.mp3'))
+    
     
     #st.download_button(label="Download", data=tts1, file_name="tts1.mp3")
     st.write("再生準備")
