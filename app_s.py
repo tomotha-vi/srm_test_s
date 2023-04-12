@@ -83,10 +83,10 @@ bins = [48, 49, 50, 51, 52, 53, 54,
 #bins = [48, 49, 50, 51, 52, 53, 54,
 #        55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, ]
 
-sns.distplot(a_data, ax=ax, label='', kde=False, bins=bins)
+########sns.distplot(a_data, ax=ax, label='', kde=False, bins=bins)
 #sns.distplot(a_data, ax=ax, label='', kde=False, bins=range(37, 48, 84))
 #sns.distplot(a_data, ax=ax, label='', kde=False, bins=range(49, 72, 1))
-sns.distplot(m_data, ax=ax, label='', kde=False, bins=bins)
+########sns.distplot(m_data, ax=ax, label='', kde=False, bins=bins)
 
 ax.yaxis.set_major_locator(MaxNLocator(integer=True))
 ax.set_ylabel('count', fontsize='medium', labelpad=10)
@@ -95,7 +95,7 @@ ax.set_title('', fontsize='xx-large')
 
 #fig.tight_layout()
 
-st.pyplot(fig)
+########st.pyplot(fig)
 
 # ボタン設定
 st.header('')
@@ -115,8 +115,10 @@ if st.button("テスト実行", key=0):
     st.session_state["clic_count"] += 0
     
     # この段階でテキストはある
-    test_tts = '長い文章だとTTSの再生にどのくらいの時間がかかるか確認しようと思います。なので、とりあえずダラダラと文章をつづっています。むしろ徒然なるままに何とやらという感じで文章を書いています。この位の文字数だと200文字くらいでしょうか。このくらいの長さでなめらかに再生できるといろいろと活用場面が広がるかなと思います。'
+    #test_tts = '長い文章だとTTSの再生にどのくらいの時間がかかるか確認しようと思います。なので、とりあえずダラダラと文章をつづっています。むしろ徒然なるままに何とやらという感じで文章を書いています。この位の文字数だと200文字くらいでしょうか。このくらいの長さでなめらかに再生できるといろいろと活用場面が広がるかなと思います。'
     #test_tts = '短いテスト'
+    
+    test_tts = m_data
     
     tts1 = gTTS(text=test_tts, lang='ja')
     tts1.save('tes_tts.mp3')
