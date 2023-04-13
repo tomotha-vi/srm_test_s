@@ -32,7 +32,7 @@ css = """
 """
 st.markdown(css, unsafe_allow_html=True)
 st.title("検証システム")
-st.header('')
+#st.header('')
 
 if 'clic_count' not in st.session_state:
     st.session_state["clic_count"] = 1
