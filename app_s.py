@@ -31,8 +31,8 @@ css = """
 </style>
 """
 st.markdown(css, unsafe_allow_html=True)
-st.title("テストシステム")
-st.header('')
+#st.title("テストシステム")
+#st.header('')
 
 if 'clic_count' not in st.session_state:
     st.session_state["clic_count"] = 1
@@ -42,23 +42,6 @@ else :
 a_data = []
 m_data = []
 
-# GETリクエスト
-endpoint = 'https://uz6byogmm7.execute-api.ap-northeast-1.amazonaws.com/Test_old_GW/testa'
-request_data= {
-    'data_name': 'test_data',
-    'data_version': '005',
-}
-
-url= endpoint
-res= requests.get(
-    url,
-    data = json.dumps(request_data)
-)
-#st.write("res : ", res )
-
-res_json = res.json()
-a_data = res_json["data"]["accomp"]
-m_data = res_json["data"]["melody"]
 
 # デバック情報
 #st.write("Load Count : ", st.session_state["clic_count"] )
@@ -113,6 +96,26 @@ button_css = f"""
 st.markdown(button_css, unsafe_allow_html=True)
 if st.button("テスト実行", key=0):
     st.session_state["clic_count"] += 0
+    
+    
+	# GETリクエスト
+	endpoint = 'https://uz6byogmm7.execute-api.ap-northeast-1.amazonaws.com/Test_old_GW/testa'
+	request_data= {
+	    'data_name': 'test_data',
+	    'data_version': '005',
+	}
+
+	url= endpoint
+	res= requests.get(
+	    url,
+	    data = json.dumps(request_data)
+	)
+	#st.write("res : ", res )
+
+	res_json = res.json()
+	a_data = res_json["data"]["accomp"]
+	m_data = res_json["data"]["melody"]
+    
     
     # この段階でテキストはある
     #test_tts = '長い文章だとTTSの再生にどのくらいの時間がかかるか確認しようと思います。なので、とりあえずダラダラと文章をつづっています。むしろ徒然なるままに何とやらという感じで文章を書いています。この位の文字数だと200文字くらいでしょうか。このくらいの長さでなめらかに再生できるといろいろと活用場面が広がるかなと思います。'
