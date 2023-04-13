@@ -31,8 +31,8 @@ css = """
 </style>
 """
 st.markdown(css, unsafe_allow_html=True)
-#st.title("テストシステム")
-#st.header('')
+st.title("検証システム")
+st.header('')
 
 if 'clic_count' not in st.session_state:
     st.session_state["clic_count"] = 1
@@ -94,7 +94,7 @@ button_css = f"""
 </style>
 """
 st.markdown(button_css, unsafe_allow_html=True)
-if st.button("テスト実行", key=0):
+if st.button("実行", key=0):
     st.session_state["clic_count"] += 0
     
     
