@@ -98,23 +98,23 @@ if st.button("テスト実行", key=0):
     st.session_state["clic_count"] += 0
     
     
-	# GETリクエスト
-	endpoint = 'https://uz6byogmm7.execute-api.ap-northeast-1.amazonaws.com/Test_old_GW/testa'
-	request_data= {
-	    'data_name': 'test_data',
-	    'data_version': '005',
-	}
+    # GETリクエスト
+    endpoint = 'https://uz6byogmm7.execute-api.ap-northeast-1.amazonaws.com/Test_old_GW/testa'
+    request_data= {
+        'data_name': 'test_data',
+        'data_version': '005',
+    }
 
-	url= endpoint
-	res= requests.get(
-	    url,
-	    data = json.dumps(request_data)
-	)
-	#st.write("res : ", res )
+    url= endpoint
+    res= requests.get(
+        url,
+        data = json.dumps(request_data)
+    )
+    #st.write("res : ", res )
 
-	res_json = res.json()
-	a_data = res_json["data"]["accomp"]
-	m_data = res_json["data"]["melody"]
+    res_json = res.json()
+    a_data = res_json["data"]["accomp"]
+    m_data = res_json["data"]["melody"]
     
     
     # この段階でテキストはある
